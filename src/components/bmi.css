@@ -1,0 +1,15 @@
+.display {
+  margin-left: 800px;
+}
+.container-960 {
+  max-width: 660px;
+  padding-right: 20px;
+  padding-left: 20px;
+  margin-top: 20px;
+  margin-right: 0px;
+  margin-left: 200px;
+  justify-items: center;
+}
+.lead {
+  text-align: center;
+}

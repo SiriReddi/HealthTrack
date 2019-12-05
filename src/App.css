@@ -1,22 +1,112 @@
-.App {
-  text-align: center;
+html {
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgb(72, 72, 119) 100%
+  );
 }
-
-.App-logo {
-  height: 40vmin;
+div .card {
+  margin-top: 40px;
+  margin-left: 330px;
+  margin-right: 300px;
+  border: 1px solid;
+  padding: 10px;
+  text-align: inherit;
+  border-radius: 15px;
+  background: linear-gradient(
+    90deg,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.card-img {
+  float: right;
+  width: 300px;
+  height: 100px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-items: center;
 }
 
-.App-link {
-  color: #09d3ac;
+.col-sm-6 {
+  display: flex;
+  justify-content: center;
+}
+.container-960 {
+  max-width: 660px;
+  padding-right: 0px;
+  padding-left: 20px;
+  margin-top: 20px;
+  margin-right: 10px;
+  margin-left: 350px;
+  justify-items: center;
+  margin-bottom: 10px;
+  border: 0.5px solid rgb(72, 72, 119);
+  border-radius: 20px;
+  background: rgb(170, 174, 216);
+}
+.heading {
+  text-align: center;
+  color: rgb(92, 43, 226);
+}
+.lead {
+  text-align: center;
+  font-size: 14px;
+}
+
+.form-horizontal {
+  text-align: center;
+  font-size: 16px;
+  margin-left: 60px;
+  justify-content: center;
+}
+.form-group {
+  margin-right: 10px;
+}
+.form-control {
+  margin-top: 5px;
+  border-radius: 10px;
+}
+
+.piedisplay {
+  border-radius: 20px;
+}
+.col-sm-10 {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+.col {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.navbar {
+  float: left;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  padding: 20px;
+  border: 1px transparent;
+  justify-content: center;
+}
+
+ul .side-bar {
+  margin-top: 10px;
+  list-style-type: none;
+  text-decoration: none;
+}
+li {
+  padding: 20px;
+  list-style-type: none;
+  color: rgb(15, 36, 223);
+  text-decoration: none;
+}
+li .menu {
+  color: whitesmoke;
+  text-decoration: none;
+}
+p {
+  justify-content: center;
+}
+.circle {
+  border-radius: 50px;
+  background-color: slategray;
 }

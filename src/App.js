@@ -4,7 +4,7 @@ import Macros from "./components/macros";
 import TargetHeartRate from "./components/targetHeartRate";
 import Home from "./components/home";
 import "./App.css";
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { BrowserRouter, Redirect, Route, Link } from "react-router-dom";
 // import { Card } from "react-bootstrap";
 
 function App(props) {
@@ -91,7 +91,7 @@ function App(props) {
         {/* <Route path="/one-rep-max-calculator" component={OneRepMax}/> */}
         <Route path="/macros-calculator" component={Macros} />
         <Route path="/target-heart-rate" component={TargetHeartRate} />
-        <Redirect path="/Home" />
+        <Redirect to="/Home" />
         {/* <Route path="/program-picker" component={ProgramPicker}/>
         <Footer /> */}
       </div>

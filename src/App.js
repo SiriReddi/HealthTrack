@@ -2,6 +2,7 @@ import React from "react";
 import BmiCalculator from "./components/bmiCalculator";
 import Macros from "./components/macros";
 import TargetHeartRate from "./components/targetHeartRate";
+import Home from "./components/home";
 import "./App.css";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 // import { Card } from "react-bootstrap";
@@ -32,7 +33,11 @@ function App(props) {
                   </div>
                 </div>
               </li>
-
+              <li className="menu">
+                <Link to="/Home" style={{ textDecoration: "none" }}>
+                  Home
+                </Link>
+              </li>
               <li className="menu">
                 <Link to="/Bmi-Calculator" style={{ textDecoration: "none" }}>
                   BMI
@@ -81,7 +86,7 @@ function App(props) {
             <p className="card-text">Today is the perfect day to be fit!</p>
           </div>
         </div>
-        {/* <Route exact={true} path="/" component={Home}/> */}
+        <Route exact={true} path="/Home" component={Home} />
         <Route path="/Bmi-Calculator" component={BmiCalculator} />
         {/* <Route path="/one-rep-max-calculator" component={OneRepMax}/> */}
         <Route path="/macros-calculator" component={Macros} />

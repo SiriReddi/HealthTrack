@@ -1,6 +1,7 @@
 import React from "react";
 import "./DisplayOutput.css";
 import Chart from "../pieChart";
+// import HeartLine from "../heartLine";
 
 function DisplayOutput(props) {
   return (
@@ -61,7 +62,8 @@ function DisplayOutput(props) {
       {props.hrMax && (
         <div className="result-block mod-hr">
           <h4>Target Heart Rate:</h4>
-          <h1>Max HR: {props.hrMax} bpm</h1>
+          <h5>Max HR: {props.hrMax} bpm</h5>
+          {/* <HeartLine MaxHR={props.hrMax} /> */}
           <p>Your calculated max heartrate.</p>
         </div>
       )}

@@ -1,19 +1,19 @@
 import React from "react";
 import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
-//import User from "./user";
 
 import TargetHeartRate from "../components/targetHeartRate";
 
-const container = null;
+let container = null;
 
 beforeEach(() => {
   container = document.createElement("div");
   document.body.appendChild(container);
 });
 
-afterEach(() => {
+afterEach(container => {
   // cleanup on exiting
+
   unmountComponentAtNode(container);
   container.remove();
   container = null;
@@ -22,10 +22,8 @@ afterEach(() => {
 it("render user data", async () => {
   const fakeUser = {
     THR: {
-      age: "37",
-      RestingHr: "97"
-    },
-    targetHr: "180"
+      age: "37"
+    }
   };
 
   jest.spyOn(global, "fetch").mockImplementation(() =>
@@ -35,12 +33,12 @@ it("render user data", async () => {
   );
 
   await act(async () => {
-    render(<TargetHeartRate user={fakeUser} />, container);
+    render(<TargetHeartRate thr={fakeUser} />, container);
   });
 
-  expect(container.querySelector("div").textContent).toBe(
-    `${fakeUser.THR.age} ${fakeUser.THR.RestingHr}`
+  expect(container.querySelector("SingleInput").textContent).toBe(
+    fakeUser.THR.age
   );
-  expect(fakeUser.THR).toContain(fakeUser.THR.targetHr);
+
   global.fetch.mockRestore();
 });

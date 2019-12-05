@@ -91,6 +91,7 @@ function App(props) {
         {/* <Route path="/one-rep-max-calculator" component={OneRepMax}/> */}
         <Route path="/macros-calculator" component={Macros} />
         <Route path="/target-heart-rate" component={TargetHeartRate} />
+        <Redirect path="/Home" />
         {/* <Route path="/program-picker" component={ProgramPicker}/>
         <Footer /> */}
       </div>

@@ -11,7 +11,7 @@ export const UnitSelection = props => (
           id="imperial"
           onChange={props.handleUnitChange}
           value="imperial"
-        />{" "}
+        />
         Imperial
       </label>
       <label className="radio-inline">
@@ -21,7 +21,7 @@ export const UnitSelection = props => (
           id="metric"
           onChange={props.handleUnitChange}
           value="metric"
-        />{" "}
+        />
         Metric
       </label>
     </div>

@@ -11,12 +11,6 @@ function Home() {
         className="gif"
         allowFullScreen
       ></iframe>
-
-      {/* <img
-        className="gif"
-        src={require("https://media.giphy.com/media/rDIbIO2O7UStO/giphy.gif")}
-        alt="gif"
-      /> */}
     </div>
   );
 }

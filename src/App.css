@@ -5,6 +5,7 @@ html {
     rgb(72, 72, 119) 100%
   );
 }
+
 div .card {
   margin-top: 40px;
   margin-left: 330px;
@@ -109,4 +110,11 @@ p {
 .circle {
   border-radius: 50px;
   background-color: slategray;
+}
+
+.radio-inline {
+  padding: 5px;
+}
+.form-control .rhr {
+  margin-left: 10px;
 }

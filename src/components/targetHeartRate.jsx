@@ -5,6 +5,7 @@ import DisplayOutput from "./display-output/DisplayOutput";
 import HeartRateTable from "./HeartRateTable/HeartRateTable";
 import FormValidation from "../utilities/FormValidation";
 import MaxHeartRate from "../utilities/MaxHeartRate";
+import "../App.css";
 
 class TargetHeartRate extends Component {
   constructor(props) {
@@ -78,6 +79,7 @@ class TargetHeartRate extends Component {
                 />
               </SingleInput>
               <SingleInput
+                className="col-sm-10-rhr"
                 label="Resting HR"
                 inputType="number"
                 name="rhr"

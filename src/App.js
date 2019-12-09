@@ -44,10 +44,7 @@ function App(props) {
                 </Link>
               </li>
               <li className="menu">
-                <Link
-                  to="/one-rep-max-calculator"
-                  style={{ textDecoration: "none" }}
-                >
+                <Link to="/Food-Dairy" style={{ textDecoration: "none" }}>
                   Food Dairy
                 </Link>
               </li>
@@ -68,7 +65,7 @@ function App(props) {
                 </Link>
               </li>
               <li className="menu">
-                <Link to="/program-picker" style={{ textDecoration: "none" }}>
+                <Link to="/Home" style={{ textDecoration: "none" }}>
                   LogOut
                 </Link>
               </li>

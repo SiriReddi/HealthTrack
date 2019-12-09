@@ -30,7 +30,7 @@ function DisplayOutput(props) {
           </p>
         </div>
       )}
-      {props.max && (
+      {/* {props.max && (
         <div className="result-block mod-max">
           <h4>One Rep Max:</h4>
           <h1>
@@ -39,7 +39,7 @@ function DisplayOutput(props) {
           </h1>
           <p>Your calculated one-rep max.</p>
         </div>
-      )}
+      )} */}
       {props.carbsGrams && (
         <div className="result-block mod-macros">
           <Chart

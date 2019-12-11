@@ -5,6 +5,7 @@ import DisplayOutput from "./display-output/DisplayOutput";
 import FormValidation from "../utilities/FormValidation";
 import PercentsValid from "../utilities/PercentsValid";
 import CalorieCalc from "../utilities/CalorieCalc";
+import Nav from "./Nav";
 
 class Macros extends Component {
   constructor(props) {
@@ -78,114 +79,117 @@ class Macros extends Component {
   };
   render() {
     return (
-      <div className="container-960">
-        <h1>Macronutrient Calculator</h1>
-        <p className="lead">
-          Macronutrients are the three groups all foods are divided into:
-          carbohydrates, fats, and protein. Depending on your dietary needs,
-          your macronutrient percentages could be very different while your
-          calories stay the same. Someone on the{" "}
-          <a href="https://www.amazon.com/Ketogenic-Cookbook-Nutritious-Low-Carb-High-Fat/dp/1628600780/ref=as_li_ss_tl?s=sporting-goods&ie=UTF8&qid=1494310956&sr=8-1&keywords=ketogenic&linkCode=ll1&tag=createahomegy-20&linkId=4e645b6e05d6699b64ce2b3402c46dd9">
-            ketogenic diet
-          </a>
-          , for example, will have very high fat, moderate protein, and very low
-          carbohydrate percentages, while someone following a diet like
-          Renaissance Periodization could be eating the same amount of total
-          calories but have low fat, high protein, and moderate carbohydrates.
-        </p>
+      <>
+        <Nav />
+        <div className="container-960">
+          <h1>Macronutrient Calculator</h1>
+          <p className="lead">
+            Macronutrients are the three groups all foods are divided into:
+            carbohydrates, fats, and protein. Depending on your dietary needs,
+            your macronutrient percentages could be very different while your
+            calories stay the same. Someone on the{" "}
+            <a href="https://www.amazon.com/Ketogenic-Cookbook-Nutritious-Low-Carb-High-Fat/dp/1628600780/ref=as_li_ss_tl?s=sporting-goods&ie=UTF8&qid=1494310956&sr=8-1&keywords=ketogenic&linkCode=ll1&tag=createahomegy-20&linkId=4e645b6e05d6699b64ce2b3402c46dd9">
+              ketogenic diet
+            </a>
+            , for example, will have very high fat, moderate protein, and very
+            low carbohydrate percentages, while someone following a diet like
+            Renaissance Periodization could be eating the same amount of total
+            calories but have low fat, high protein, and moderate carbohydrates.
+          </p>
 
-        <div className="row">
-          <div className="col-sm-6">
-            <form
-              className="form-horizontal clearfix bottom-buffer"
-              onSubmit={this.handleSubmit}
-            >
-              <h4>The total number of calories you want to eat daily:</h4>
-              <SingleInput
-                label="Calories"
-                inputType="number"
-                name="calories"
-                hasErrors={this.state.errors.calories}
-                value={this.state.calories}
-                width="80px"
-                handleChange={this.handleCaloriesChange}
-                handleErrors={this.handleErrors}
+          <div className="row">
+            <div className="col-sm-6">
+              <form
+                className="form-horizontal clearfix bottom-buffer"
+                onSubmit={this.handleSubmit}
               >
-                <FieldError
+                <h4>The total number of calories you want to eat daily:</h4>
+                <SingleInput
+                  label="Calories"
+                  inputType="number"
+                  name="calories"
                   hasErrors={this.state.errors.calories}
-                  errorMsg="Calories must be greater than 0"
-                />
-              </SingleInput>
-              <h4>The macro percentages you want:</h4>
-              <SingleInput
-                label="Carbs"
-                inputType="number"
-                name="carbsPercent"
-                hasErrors={this.state.errors.carbsPercent}
-                value={this.state.carbsPercent}
-                width="80px"
-                handleChange={this.handleMacroPercentageChange}
-                handleErrors={this.handleErrors}
-              >
-                <FieldError
-                  hasErrors={this.state.errors.carbsPercent}
-                  errorMsg="Percentage of carbohydrates must be 0 or greater and less than 101"
-                />
-              </SingleInput>
-              <SingleInput
-                label="Protein"
-                inputType="number"
-                name="proteinPercent"
-                hasErrors={this.state.errors.proteinPercent}
-                value={this.state.proteinPercent}
-                width="80px"
-                handleChange={this.handleMacroPercentageChange}
-                handleErrors={this.handleErrors}
-              >
-                <FieldError
-                  hasErrors={this.state.errors.proteinPercent}
-                  errorMsg="Percentage of protein must be 0 or greater and less than 101"
-                />
-              </SingleInput>
-              <SingleInput
-                label="Fat"
-                inputType="number"
-                name="fatPercent"
-                hasErrors={this.state.errors.fatPercent}
-                value={this.state.fatPercent}
-                width="80px"
-                handleChange={this.handleMacroPercentageChange}
-                handleErrors={this.handleErrors}
-              >
-                <FieldError
-                  hasErrors={this.state.errors.fatPercent}
-                  errorMsg="Percentage of fat must be 0 or greater and less than 101"
-                />
-              </SingleInput>
-              <FieldError
-                hasErrors={!this.state.totalPercentValid}
-                errorMsg="All the percentages must equal 100"
-              />
-              <div className="pull-right">
-                <button
-                  type="submit"
-                  disabled={!this.canBeSubmitted()}
-                  className="btn btn-default"
+                  value={this.state.calories}
+                  width="80px"
+                  handleChange={this.handleCaloriesChange}
+                  handleErrors={this.handleErrors}
                 >
-                  Submit
-                </button>
+                  <FieldError
+                    hasErrors={this.state.errors.calories}
+                    errorMsg="Calories must be greater than 0"
+                  />
+                </SingleInput>
+                <h4>The macro percentages you want:</h4>
+                <SingleInput
+                  label="Carbs"
+                  inputType="number"
+                  name="carbsPercent"
+                  hasErrors={this.state.errors.carbsPercent}
+                  value={this.state.carbsPercent}
+                  width="80px"
+                  handleChange={this.handleMacroPercentageChange}
+                  handleErrors={this.handleErrors}
+                >
+                  <FieldError
+                    hasErrors={this.state.errors.carbsPercent}
+                    errorMsg="Percentage of carbohydrates must be 0 or greater and less than 101"
+                  />
+                </SingleInput>
+                <SingleInput
+                  label="Protein"
+                  inputType="number"
+                  name="proteinPercent"
+                  hasErrors={this.state.errors.proteinPercent}
+                  value={this.state.proteinPercent}
+                  width="80px"
+                  handleChange={this.handleMacroPercentageChange}
+                  handleErrors={this.handleErrors}
+                >
+                  <FieldError
+                    hasErrors={this.state.errors.proteinPercent}
+                    errorMsg="Percentage of protein must be 0 or greater and less than 101"
+                  />
+                </SingleInput>
+                <SingleInput
+                  label="Fat"
+                  inputType="number"
+                  name="fatPercent"
+                  hasErrors={this.state.errors.fatPercent}
+                  value={this.state.fatPercent}
+                  width="80px"
+                  handleChange={this.handleMacroPercentageChange}
+                  handleErrors={this.handleErrors}
+                >
+                  <FieldError
+                    hasErrors={this.state.errors.fatPercent}
+                    errorMsg="Percentage of fat must be 0 or greater and less than 101"
+                  />
+                </SingleInput>
+                <FieldError
+                  hasErrors={!this.state.totalPercentValid}
+                  errorMsg="All the percentages must equal 100"
+                />
+                <div className="pull-right">
+                  <button
+                    type="submit"
+                    disabled={!this.canBeSubmitted()}
+                    className="btn btn-default"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </form>
+              <div className="piedisplay">
+                <DisplayOutput
+                  carbsGrams={this.state.carbsGrams}
+                  proteinGrams={this.state.proteinGrams}
+                  fatGrams={this.state.fatGrams}
+                />
               </div>
-            </form>
-            <div className="piedisplay">
-              <DisplayOutput
-                carbsGrams={this.state.carbsGrams}
-                proteinGrams={this.state.proteinGrams}
-                fatGrams={this.state.fatGrams}
-              />
             </div>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 }

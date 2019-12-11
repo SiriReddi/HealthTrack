@@ -5,6 +5,7 @@ import DisplayOutput from "./display-output/DisplayOutput";
 import HeartRateTable from "./HeartRateTable/HeartRateTable";
 import FormValidation from "../utilities/FormValidation";
 import MaxHeartRate from "../utilities/MaxHeartRate";
+import Nav from "./Nav";
 import "../App.css";
 
 class TargetHeartRate extends Component {
@@ -49,76 +50,79 @@ class TargetHeartRate extends Component {
   };
   render() {
     return (
-      <div className="container-960">
-        <h1>Target Heart Rate</h1>
-        <p className="lead">
-          This calculator will find your recommended maximum heart rate and then
-          use that to find different heart ranges for different exercise
-          intensities and workout goals.
-        </p>
+      <>
+        <Nav />
+        <div className="container-960">
+          <h1>Target Heart Rate</h1>
+          <p className="lead">
+            This calculator will find your recommended maximum heart rate and
+            then use that to find different heart ranges for different exercise
+            intensities and workout goals.
+          </p>
 
-        <div className="row">
-          <div className="col-sm-6">
-            <form
-              className="form-horizontal clearfix bottom-buffer"
-              onSubmit={this.handleSubmit}
-            >
-              <SingleInput
-                label="Age"
-                inputType="number"
-                name="age"
-                hasErrors={this.state.errors.age}
-                value={this.state.age}
-                width="80px"
-                handleChange={this.handleAgeChange}
-                handleErrors={this.handleErrors}
-              >
-                <FieldError
-                  hasErrors={this.state.errors.age}
-                  errorMsg="Age must be greater than 0"
-                />
-              </SingleInput>
-              <SingleInput
-                className="col-sm-10-rhr"
-                label="Resting HR"
-                inputType="number"
-                name="rhr"
-                hasErrors={this.state.errors.rhr}
-                value={this.state.rhr}
-                width="80px"
-                handleChange={this.handleRhrChange}
-                handleErrors={this.handleErrors}
-              >
-                bpm
-                <span className="help-block">
-                  <em>Optional</em>
-                </span>
-                <FieldError
-                  hasErrors={this.state.errors.rhr}
-                  errorMsg="Resting heart rate must be greater than 0."
-                />
-              </SingleInput>
-              <div className="pull-right">
-                <button
-                  type="submit"
-                  disabled={!this.canBeSubmitted()}
-                  className="btn btn-default"
-                >
-                  Submit
-                </button>
-              </div>
-            </form>
+          <div className="row">
             <div className="col-sm-6">
-              <DisplayOutput hrMax={this.state.hrMax} rhr={this.state.rhr} />
+              <form
+                className="form-horizontal clearfix bottom-buffer"
+                onSubmit={this.handleSubmit}
+              >
+                <SingleInput
+                  label="Age"
+                  inputType="number"
+                  name="age"
+                  hasErrors={this.state.errors.age}
+                  value={this.state.age}
+                  width="80px"
+                  handleChange={this.handleAgeChange}
+                  handleErrors={this.handleErrors}
+                >
+                  <FieldError
+                    hasErrors={this.state.errors.age}
+                    errorMsg="Age must be greater than 0"
+                  />
+                </SingleInput>
+                <SingleInput
+                  className="col-sm-10-rhr"
+                  label="Resting HR"
+                  inputType="number"
+                  name="rhr"
+                  hasErrors={this.state.errors.rhr}
+                  value={this.state.rhr}
+                  width="80px"
+                  handleChange={this.handleRhrChange}
+                  handleErrors={this.handleErrors}
+                >
+                  bpm
+                  <span className="help-block">
+                    <em>Optional</em>
+                  </span>
+                  <FieldError
+                    hasErrors={this.state.errors.rhr}
+                    errorMsg="Resting heart rate must be greater than 0."
+                  />
+                </SingleInput>
+                <div className="pull-right">
+                  <button
+                    type="submit"
+                    disabled={!this.canBeSubmitted()}
+                    className="btn btn-default"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </form>
+              <div className="col-sm-6">
+                <DisplayOutput hrMax={this.state.hrMax} rhr={this.state.rhr} />
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-sm-12">
+              <HeartRateTable hrMax={this.state.hrMax} rhr={this.state.rhr} />
             </div>
           </div>
         </div>
-        <div className="row">
-          <div className="col-sm-12">
-            <HeartRateTable hrMax={this.state.hrMax} rhr={this.state.rhr} />
-          </div>
-        </div>
-      </div>
+      </>
     );
   }
 }

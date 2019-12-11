@@ -9,6 +9,7 @@ import UnitConversion from "../utilities/UnitConversion";
 import DisplayOutput from "./display-output/DisplayOutput";
 import CalorieCalc from "../utilities/CalorieCalc";
 import FormValidation from "../utilities/FormValidation";
+import Nav from "./Nav";
 
 class BmiCalculator extends Component {
   constructor(props) {
@@ -160,104 +161,107 @@ class BmiCalculator extends Component {
   };
   render() {
     return (
-      <div className="container-960">
-        <h1 className="heading">BMI Calculator</h1>
-        <p className="lead">
-          Use our calculator to find out how many calories your body burns every
-          day (Total Daily Energy Expenditure). It takes your individual body
-          metrics and activity level and uses a <br></br>
-          <a href="https://www.ncbi.nlm.nih.gov/pubmed/2305711">
-            scientifically accurate
-          </a>
-          formula to get your personalized result.
-        </p>
-        <div className="row">
-          <div className="col-sm-6">
-            <form
-              className="form-horizontal clearfix bottom-buffer"
-              onSubmit={this.handleSubmit}
-            >
-              <UnitSelection handleUnitChange={this.handleUnitChange} />
-              <SexSelection handleSexChange={this.handleSexChange} />
-              <SingleInput
-                className="col"
-                label="Weight"
-                inputType="number"
-                name="weight"
-                hasErrors={this.state.errors.weight}
-                value={this.state.displayWeight}
-                width="80px"
-                handleChange={this.handleWeightChange}
-                handleErrors={this.handleErrors}
+      <>
+        <Nav />
+        <div className="container-960">
+          <h1 className="heading">BMI Calculator</h1>
+          <p className="lead">
+            Use our calculator to find out how many calories your body burns
+            every day (Total Daily Energy Expenditure). It takes your individual
+            body metrics and activity level and uses a <br></br>
+            <a href="https://www.ncbi.nlm.nih.gov/pubmed/2305711">
+              scientifically accurate
+            </a>
+            formula to get your personalized result.
+          </p>
+          <div className="row">
+            <div className="col-sm-6">
+              <form
+                className="form-horizontal clearfix bottom-buffer"
+                onSubmit={this.handleSubmit}
               >
-                <UnitLabel units={this.state.units} />
-                <FieldError
+                <UnitSelection handleUnitChange={this.handleUnitChange} />
+                <SexSelection handleSexChange={this.handleSexChange} />
+                <SingleInput
+                  className="col"
+                  label="Weight"
+                  inputType="number"
+                  name="weight"
                   hasErrors={this.state.errors.weight}
-                  errorMsg="Weight must be greater than 0"
-                />
-              </SingleInput>
-              <SingleInput
-                className="col"
-                label="Age"
-                inputType="number"
-                name="age"
-                hasErrors={this.state.errors.age}
-                value={this.state.age}
-                width="80px"
-                handleChange={this.handleAgeChange}
-                handleErrors={this.handleErrors}
-              >
-                <FieldError
-                  hasErrors={this.state.errors.age}
-                  errorMsg="Age must be greater than 0"
-                />
-              </SingleInput>
-              <HeightInput
-                className="col"
-                name="height"
-                cm={this.state.masterHeight}
-                feet={this.state.feet}
-                inches={this.state.inches}
-                hasErrors={this.state.errors.height}
-                units={this.state.units}
-                handleErrors={this.handleErrors}
-                handleImperialHeightErrors={this.handleImperialHeightErrors}
-                handleFeetChange={this.handleFeetChange}
-                handleInchesChange={this.handleInchesChange}
-                handleCmChange={this.handleCmChange}
-              >
-                <FieldError
-                  hasErrors={this.state.errors.height}
-                  errorMsg="Height must be greater than 0"
-                />
-              </HeightInput>
-              <ActivitySelect
-                name="activityLevel"
-                handleErrors={this.handleErrors}
-                handleActivityLevelChange={this.handleActivityLevelChange}
-                hasErrors={this.state.errors.activityLevel}
-              >
-                <FieldError
-                  hasErrors={this.state.errors.activityLevel}
-                  errorMsg="Please select an activity level"
-                />
-              </ActivitySelect>
-              <div className="pull-right">
-                <button
-                  type="submit"
-                  disabled={!this.canBeSubmitted()}
-                  className="btn btn-default"
+                  value={this.state.displayWeight}
+                  width="80px"
+                  handleChange={this.handleWeightChange}
+                  handleErrors={this.handleErrors}
                 >
-                  Submit
-                </button>
+                  <UnitLabel units={this.state.units} />
+                  <FieldError
+                    hasErrors={this.state.errors.weight}
+                    errorMsg="Weight must be greater than 0"
+                  />
+                </SingleInput>
+                <SingleInput
+                  className="col"
+                  label="Age"
+                  inputType="number"
+                  name="age"
+                  hasErrors={this.state.errors.age}
+                  value={this.state.age}
+                  width="80px"
+                  handleChange={this.handleAgeChange}
+                  handleErrors={this.handleErrors}
+                >
+                  <FieldError
+                    hasErrors={this.state.errors.age}
+                    errorMsg="Age must be greater than 0"
+                  />
+                </SingleInput>
+                <HeightInput
+                  className="col"
+                  name="height"
+                  cm={this.state.masterHeight}
+                  feet={this.state.feet}
+                  inches={this.state.inches}
+                  hasErrors={this.state.errors.height}
+                  units={this.state.units}
+                  handleErrors={this.handleErrors}
+                  handleImperialHeightErrors={this.handleImperialHeightErrors}
+                  handleFeetChange={this.handleFeetChange}
+                  handleInchesChange={this.handleInchesChange}
+                  handleCmChange={this.handleCmChange}
+                >
+                  <FieldError
+                    hasErrors={this.state.errors.height}
+                    errorMsg="Height must be greater than 0"
+                  />
+                </HeightInput>
+                <ActivitySelect
+                  name="activityLevel"
+                  handleErrors={this.handleErrors}
+                  handleActivityLevelChange={this.handleActivityLevelChange}
+                  hasErrors={this.state.errors.activityLevel}
+                >
+                  <FieldError
+                    hasErrors={this.state.errors.activityLevel}
+                    errorMsg="Please select an activity level"
+                  />
+                </ActivitySelect>
+                <div className="pull-right">
+                  <button
+                    type="submit"
+                    disabled={!this.canBeSubmitted()}
+                    className="btn btn-default"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </form>
+              <div className="display">
+                <DisplayOutput bmr={this.state.bmr} tdee={this.state.tdee} />
               </div>
-            </form>
-            <div className="display">
-              <DisplayOutput bmr={this.state.bmr} tdee={this.state.tdee} />
             </div>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 }

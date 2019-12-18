@@ -1,5 +1,5 @@
 import React from "react";
-import { Column } from "simple-flexbox";
+import { Column, Row } from "simple-flexbox";
 import { StyleSheet, css } from "aphrodite/no-important";
 import "./RowingMachine.svg";
 
@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     border: "1px solid pink",
     borderRadius: 20,
     cursor: "pointer",
-    height: 80,
+    height: 70,
     width: "100%",
     maxWidth: "80%",
     marginTop: 5,
@@ -26,10 +26,24 @@ const styles = StyleSheet.create({
     horizontal: "right",
     vertical: "right",
     width: "100%",
-    height: "160%",
+    height: "110%",
     display: "flex",
     justifyItems: "center",
-    marginLeft: "83%"
+    marginLeft: "85%",
+    marginBottom: "16%"
+  },
+  // name: {
+  //   display: "flex",
+  //   float: "right"
+  // },
+  tag: {
+    display: "flex",
+    color: "gray",
+    lineSpacing: "1px",
+    marginTop: "20%",
+    marginRight: "60%",
+    width: "30%",
+    height: "20%"
   }
 });
 
@@ -42,6 +56,12 @@ function MiniCardComponent({ className = "" }) {
       horizontal="center"
       vertical="center"
     >
+      <Row className={css(styles.tag)}>
+        Hello Sirisha
+        <br></br>
+        It is a great day to be fit
+      </Row>
+
       <img
         className={css(styles.cardimg)}
         src={require("./RowingMachine.svg")}

@@ -1,4 +1,5 @@
 import React from "react";
+import "./rightside.css";
 class Range extends React.Component {
   constructor(props) {
     super(props);
@@ -13,7 +14,7 @@ class Range extends React.Component {
     // console.log(this.props);
     const { range } = this.props;
     return (
-      <div>
+      <div className="slidecontainer">
         <input
           id="range"
           type="range"
@@ -21,6 +22,8 @@ class Range extends React.Component {
           min="0"
           max="24"
           step="1"
+          width="100px"
+          className="slider"
           onChange={this.updateRange}
         />
         <span id="output">{range}</span>

@@ -11,11 +11,11 @@ ReactFC.fcRoot(FusionCharts, charts, Widgets, FusionTheme);
 // Resolves charts dependancy
 charts(FusionCharts);
 
-class FusionHeart extends React.Component {
+class BmiLine extends React.Component {
   render() {
     const dataSource = {
       chart: {
-        caption: "Heart Line",
+        caption: "BMI Line",
         numberprefix: "",
         bgColor: "pink",
         lineColor: "pink",
@@ -30,27 +30,27 @@ class FusionHeart extends React.Component {
           data: [
             {
               tooltext: "",
-              value: 80
+              value: 23
             },
             {
               tooltext: "",
-              value: 190
+              value: 40
             },
             {
               tooltext: "",
-              value: 60
+              value: 19
             },
             {
               tooltext: "",
-              value: 130
+              value: 25
             },
             {
               tooltext: "",
-              value: 75
+              value: 35
             },
             {
               tooltext: "",
-              value: 160
+              value: 40
             }
           ]
         }
@@ -68,4 +68,4 @@ class FusionHeart extends React.Component {
   }
 }
 
-export default FusionHeart;
+export default BmiLine;

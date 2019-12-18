@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
 });
 
 class FoodDashboard extends React.Component {
-  state = { selectedItem: "FoodDairy" };
+  state = { selectedItem: "Nutrition" };
 
   componentDidMount() {
     window.addEventListener("resize", this.resize);

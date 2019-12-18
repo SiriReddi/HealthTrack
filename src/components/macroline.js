@@ -11,11 +11,11 @@ ReactFC.fcRoot(FusionCharts, charts, Widgets, FusionTheme);
 // Resolves charts dependancy
 charts(FusionCharts);
 
-class FusionHeart extends React.Component {
+class MacroLine extends React.Component {
   render() {
     const dataSource = {
       chart: {
-        caption: "Heart Line",
+        caption: "Macro Line",
         numberprefix: "",
         bgColor: "pink",
         lineColor: "pink",
@@ -30,27 +30,27 @@ class FusionHeart extends React.Component {
           data: [
             {
               tooltext: "",
-              value: 80
-            },
-            {
-              tooltext: "",
-              value: 190
-            },
-            {
-              tooltext: "",
               value: 60
             },
             {
               tooltext: "",
-              value: 130
+              value: 20
             },
+            // {
+            //   tooltext: "",
+            //   value: 40
+            // },
+            // {
+            //   tooltext: "",
+            //   value: 130
+            // },
+            // {
+            //   tooltext: "",
+            //   value: 75
+            // },
             {
               tooltext: "",
-              value: 75
-            },
-            {
-              tooltext: "",
-              value: 160
+              value: 40
             }
           ]
         }
@@ -68,4 +68,4 @@ class FusionHeart extends React.Component {
   }
 }
 
-export default FusionHeart;
+export default MacroLine;

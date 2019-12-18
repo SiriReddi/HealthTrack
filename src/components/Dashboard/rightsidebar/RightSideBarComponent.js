@@ -4,7 +4,7 @@ import { StyleSheet, css } from "aphrodite";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import MenuItemComponent from "../sidebar/MenuItemComponent";
 import Slider from "./sliderpage";
-
+import "./me.jpg";
 const styles = StyleSheet.create({
   sidecontainer: {
     backgroundImage:
@@ -37,9 +37,10 @@ const styles = StyleSheet.create({
   grid: {
     // marginTop: "10px",
     // marginBottom: "10px",
-    border: "1px solid lightpink",
+    // border: "1px solid lightpink",
     borderRadius: "10px",
-    color: "white"
+    color: "lightgrey",
+    marginRight: "18%"
   },
   // outsideLayer: {
   //   position: "absolute",
@@ -64,7 +65,7 @@ const styles = StyleSheet.create({
   wha: {
     display: "flex",
     // flex: "row",
-    marginTop: "10px",
+    // marginTop: "8px",
     justifyContent: "center",
     marginLeft: "15px",
     height: "10px"
@@ -72,7 +73,7 @@ const styles = StyleSheet.create({
   whatitle: {
     display: "flex",
     justifyContent: "center",
-    marginTop: "10px",
+    marginTop: "8px",
     marginLeft: "15px"
     // height: "10px",
     // flex: "row"
@@ -80,19 +81,31 @@ const styles = StyleSheet.create({
   slider: {
     // display: "flex",
     // justifyContent: "center",
-    marginTop: "20px",
-    marginBottom: "20px",
+    //  marginTop: "15px",
+    //    marginBottom: "20px",
     // marginLeft: "30px",
     // border: "1px solid pink",
     width: "auto",
-    border: "1px solid lightpink",
+    // border: "0.5px solid lightpink",
     borderRadius: "10px",
-    color: "white"
+    color: "lightgrey"
+  },
+  image: {
+    marginLeft: "20%",
+    marginTop: "10%",
+    marginBottom: "10%",
+    borderRadius: "50%",
+    border: "1px solid lightpink",
+    width: "40%",
+    height: "8%"
   },
   slid: {
     display: "flex",
     justifyItems: "center",
-    marginLeft: "50px"
+    marginLeft: "20%"
+  },
+  every: {
+    marginLeft: "20%"
   }
 });
 
@@ -136,6 +149,14 @@ class SidebarComponent extends React.Component {
             <Link to="/" style={{ textDecoration: "none" }}>
               <MenuItemComponent title="LogOut" />
             </Link>
+            <div>
+              <img
+                width="100"
+                height="100"
+                src={require("./me.jpg")}
+                className={css(styles.image)}
+              />
+            </div>
 
             <Column className={css(styles.grid)}>
               <div className={css(styles.wha)}>

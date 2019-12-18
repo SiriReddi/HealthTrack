@@ -1,8 +1,8 @@
 import React from "react";
 import { Column } from "simple-flexbox";
 import { StyleSheet, css } from "aphrodite/no-important";
-import FusionHeart from "../../fusionheartline";
-// import HeartLine from "../../heartLine";
+import MacroLine from "../../macroline";
+
 const styles = StyleSheet.create({
   container: {
     backgroundImage:
@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     cursor: "pointer",
     height: 100,
-    maxWidth: 220,
+    maxWidth: 320,
     marginTop: 20,
     padding: "10px 14px 10px 14px"
     // ":hover": {
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   }
 });
 
-function MiniCardComponent({ className = "" }, props) {
+function MacroCardComponent({ className = "" }, props) {
   const composedClassName = `${css(styles.container)} ${className}`;
   return (
     <Column
@@ -41,7 +41,7 @@ function MiniCardComponent({ className = "" }, props) {
       horizontal="center"
       vertical="center"
     >
-      <FusionHeart className={css(styles.heartline)} />
+      <MacroLine className={css(styles.heartline)} />
       {/* {props.hrMax && (
         <FusionHeart className={css(styles.heartline)} Hr={props.hrMax} />
       )} */}
@@ -52,4 +52,4 @@ function MiniCardComponent({ className = "" }, props) {
   );
 }
 
-export default MiniCardComponent;
+export default MacroCardComponent;

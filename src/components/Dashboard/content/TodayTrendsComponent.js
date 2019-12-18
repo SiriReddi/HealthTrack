@@ -3,7 +3,7 @@ import { Column, Row } from "simple-flexbox";
 import { StyleSheet, css } from "aphrodite";
 // import LineChart from "react-svg-line-chart";
 import StackedChart from "../../stackedChart";
-// import FusionHeart from "../../fusionheartline";
+import Chart from "../../pchart";
 
 const data = [];
 for (let x = 1; x <= 24; x++) {
@@ -82,7 +82,12 @@ const styles = StyleSheet.create({
       "linear-gradient(to right top, #1f1d1e, #261c24, #2a1c2c, #2b1d37, #262043, #1c2245, #102445, #002645, #002438, #01202a, #0b1b1e, #121515)",
     borderRadius: 10,
     border: "1px solid pink",
-    justifyContent: "center"
+    justifyContent: "center",
+    width: "100px"
+  },
+  pie: {
+    width: "5px",
+    height: "5px"
   },
   stack: {
     backgroundImage:
@@ -91,22 +96,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginLeft: "20px"
   },
-  // stats: {
-  //   borderTop: "1px solid #DFE0EB",
-  //   width: "50%"
-  // },
-  // statTitle: {
-  //   fontFamily: "Muli",
-  //   fontStyle: "normal",
-  //   fontWeight: "600",
-  //   fontSize: 16,
-  //   lineHeight: "22px",
-  //   letterSpacing: "0.3px",
-  //   textAlign: "center",
-  //   color: "#9FA2B4",
-  //   whiteSpace: "nowrap",
-  //   marginBottom: 6
-  // },
+
   statValue: {
     fontFamily: "Muli",
     fontStyle: "normal",
@@ -120,31 +110,6 @@ const styles = StyleSheet.create({
 });
 
 class TodayTrendsComponent extends React.Component {
-  // renderLegend(color, title) {
-  //   return (
-  //     <Row vertical="center">
-  //       <div
-  //         style={{ width: 16, border: "2px solid", borderColor: color }}
-  //       ></div>
-  //       <span className={css(styles.legendTitle)}>{title}</span>
-  //     </Row>
-  //   );
-  // }
-
-  // renderStat(title, value) {
-  //   return (
-  //     <Column
-  //       flexGrow={1}
-  //       className={css(styles.statContainer)}
-  //       vertical="center"
-  //       horizontal="center"
-  //     >
-  //       <span className={css(styles.statTitle)}>{title}</span>
-  //       <span className={css(styles.statValue)}>{value}</span>
-  //     </Column>
-  //   );
-  // }
-
   render() {
     return (
       <Row
@@ -194,18 +159,7 @@ class TodayTrendsComponent extends React.Component {
           flexBasis="100px"
           breakpoints={{ 1024: css(styles.stats) }}
         >
-          {/* <FusionHeart
-            data={data}
-            viewBoxWidth={200}
-            pointsStrokeColor="#3751FF"
-            areaColor="#3751FF"
-            areaVisible={true}
-          /> */}
-          {/* {this.renderStat("Resolved", "449")}
-          {this.renderStat("Received", "426")}
-          {this.renderStat("Average first response time", "33m")} */}
-          {/* {this.renderStat("Average response time", "3h 8m")}
-          {this.renderStat("Resolution within SLA", "94%")} */}
+          <Chart className={css(styles.pie)} />
         </Column>
       </Row>
     );

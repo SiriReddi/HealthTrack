@@ -203,7 +203,7 @@ class StackedChart extends React.Component {
         justifyContent="Center"
         margin-left="10%"
         width="90%"
-        height="60%"
+        height="50%"
         dataFormat="JSON"
         dataSource={dataSource}
       />

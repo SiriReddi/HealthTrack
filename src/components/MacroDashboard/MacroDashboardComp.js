@@ -25,16 +25,17 @@ import ChartPie from "./../ChartsPie";
 
 const styles = StyleSheet.create({
   cardUser: {
-    marginLeft: "5%",
+    marginLeft: "10%",
     marginRight: "5%",
     marginTop: "5%",
-    marginBottom: "25%",
+    marginBottom: "8%",
     backgroundImage:
       "linear-gradient(to right top, #1f1d1e, #261c24, #2a1c2c, #2b1d37, #262043, #1c2245, #102445, #002645, #002438, #01202a, #0b1b1e, #121515)",
     justifyContent: "center",
     color: "white",
     borderRadius: "40px",
-    border: "1px solid lightpink"
+    border: "1px solid lightpink",
+    width: "80%"
   },
   dash: {
     background: "fixed"
@@ -45,10 +46,11 @@ const styles = StyleSheet.create({
     // minHeight: "100vh"
   },
   minicontent: {
-    width: "100%",
+    width: "90%",
     borderRadius: "30%",
     padding: "10px",
-    marginTop: 5
+    marginTop: 5,
+    marginLeft: "10%"
   },
   contentside: {
     marginTop: 0,
@@ -95,7 +97,7 @@ const styles = StyleSheet.create({
   root: {
     flexGrow: 1,
     marginBottom: "5%",
-    marginLeft: "40%",
+    marginLeft: "42%",
     justifyContent: "center"
   },
   gridContainer: {
@@ -221,10 +223,10 @@ class MacroDashboard extends React.Component {
                       >
                         {this.props.firstName} {this.props.lastName}
                       </Typography>
-                      <Typography className={css(styles.info)}>
+                      {/* <Typography className={css(styles.info)}>
                         All your daily Health Tracking Information is displayed
                         below. Click on the icons to access the goal pages
-                      </Typography>
+                      </Typography> */}
                       <Table className={css(styles.table)}>
                         <TableBody>
                           {/* <TableRow>

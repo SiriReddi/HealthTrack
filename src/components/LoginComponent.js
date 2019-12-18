@@ -22,13 +22,19 @@ const styles = theme => ({
     paddingBottom: theme.spacing.unit * 2,
 
     margin: "10%",
-    marginTop: "20%",
-    width: "35%",
+    marginTop: "25%",
+    width: "30%",
     borderRadius: "10%",
+    background: "lightcream",
+    border: "0.5em solid lightblue",
     zindex: "9999"
   },
+
   body: {
-    backgrounImage: `url(${login})`
+    display: "flex",
+    backgroundImage: `url(${login})`,
+    backgroundSize: "cover",
+    height: "100%"
   },
   margin: {
     margin: theme.spacing.unit

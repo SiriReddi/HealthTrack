@@ -32,10 +32,10 @@ const styles = theme => ({
   },
   textField: {
     marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
-    color: "gray"
-
-    // width: 200
+    marginRight: theme.spacing.unit
+  },
+  multilineColor: {
+    color: "pink"
   },
   container: {
     display: "flex",
@@ -101,7 +101,13 @@ const styles = theme => ({
   info: {
     margin: "3% 2% 0% 2%"
   },
+  input: {
+    color: "pink"
+  },
   body: {
+    color: "secondary"
+  },
+  MuiTableCellbody: {
     color: "pink"
   }
   // graphPaper: {
@@ -116,8 +122,12 @@ class ExerciseGoalCard extends React.Component {
     return arr.map(element => {
       return (
         <TableRow>
-          <TableCell>{element.exercise}</TableCell>
-          <TableCell>{element.duration} Minutes</TableCell>
+          <TableCell className={this.props.classes.cell}>
+            {element.exercise}
+          </TableCell>
+          <TableCell className={this.props.classes.cell}>
+            {element.duration} Minutes
+          </TableCell>
         </TableRow>
       );
     });
@@ -156,6 +166,7 @@ class ExerciseGoalCard extends React.Component {
                         Workouts
                       </InputLabel>
                       <Select
+                        className={classes.input}
                         value={this.props.activity}
                         onChange={this.props.handleExerciseChange}
                         inputProps={{ name: "activity", id: "workout-simple" }}
@@ -179,7 +190,7 @@ class ExerciseGoalCard extends React.Component {
                         <MenuItem value={"boxing"}>Boxing</MenuItem>
                         <MenuItem value={"other"}>Other</MenuItem>
                       </Select>
-                      <FormHelperText>
+                      <FormHelperText className={classes.input}>
                         Select the workout and duration
                       </FormHelperText>
                     </FormControl>
@@ -201,8 +212,18 @@ class ExerciseGoalCard extends React.Component {
                     <TextField
                       id="addMinutes"
                       label="Enter Minutes"
+                      InputLabelProps={{
+                        classes: {
+                          root: classes.multilineColor
+                        }
+                      }}
                       value={this.props.minutes}
                       onChange={this.props.handleDurationChange}
+                      InputProps={{
+                        classes: {
+                          input: classes.multilineColor
+                        }
+                      }}
                       type="number"
                       className={classes.textField}
                       margin="normal"
@@ -212,7 +233,11 @@ class ExerciseGoalCard extends React.Component {
                   </form>
                 </Grid>
                 <Grid className={classes.submit} item xs={12}>
-                  <Button onClick={this.props.addExercise} variant="contained">
+                  <Button
+                    onClick={this.props.addExercise}
+                    variant="contained"
+                    color="primary"
+                  >
                     Submit
                   </Button>
                 </Grid>
@@ -237,7 +262,14 @@ class ExerciseGoalCard extends React.Component {
                     <TableCell className={classes.cell}>Duration</TableCell>
                   </TableRow>
                 </TableHead>
-                <TableBody className={classes.body}>
+                <TableBody
+                  className={classes.body}
+                  InputProps={{
+                    classes: {
+                      input: classes.multilineColor
+                    }
+                  }}
+                >
                   {this.renderTableRows(this.props.todaysActivities)}
                 </TableBody>
               </Table>

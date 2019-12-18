@@ -5,15 +5,16 @@ import { BrowserRouter, Route, Link } from "react-router-dom";
 import LogoComponent from "./LogoComponent";
 import MenuItemComponent from "./MenuItemComponent";
 import FoodLog from "../../../pages/FoodLog";
+import "./images1.png";
 // import IconOverview from "../../assets/icon-overview.js";
 // import IconTickets from "../../assets/icon-tickets.js";
 // import IconIdeas from "../../assets/icon-ideas.js";
 // import IconContacts from "../../assets/icon-contacts";
-// import IconAgents from "../../assets/icon-agents";
+//import IconAgents from "../../../assets/icon-agents";
 // import IconArticles from "../../assets/icon-articles";
 // import IconSettings from "../../assets/icon-settings";
 // import IconSubscription from "../../assets/icon-subscription";
-// import IconBurger from "../../assets/icon-burger";
+// import IconBurger from "../../../assets/icon-burger";
 
 const styles = StyleSheet.create({
   burgerIcon: {
@@ -60,12 +61,24 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(0,0,0,.50)",
     zIndex: 900
   },
+  image: {
+    marginLeft: "20%",
+    marginTop: "5%",
+    borderRadius: "40px",
+    border: "1px solid lightpink"
+  },
+  appname: {
+    marginLeft: "10%",
+    color: "lightgrey",
+    fontStyle: "italic"
+  },
   separator: {
     borderTop: "1px solid #DFE0EB",
     marginTop: 16,
     marginBottom: 16,
     opacity: 0.06
   },
+
   hide: {
     left: -255
   },
@@ -119,7 +132,16 @@ class SidebarComponent extends React.Component {
               )
             }}
           >
-            <LogoComponent />
+            {/* <LogoComponent /> */}
+            <div>
+              <img
+                width="100"
+                height="100"
+                src={require("./images1.png")}
+                className={css(styles.image)}
+              />
+            </div>
+            <h2 className={css(styles.appname)}> Fitness Tracker </h2>
             <Column className={css(styles.menuItemList)}>
               <Link to="/Dashboard" style={{ textDecoration: "none" }}>
                 <MenuItemComponent
@@ -127,22 +149,6 @@ class SidebarComponent extends React.Component {
                   // icon={IconOverview}
                   onClick={() => this.onItemClicked("Dashboard")}
                   active={this.props.selectedItem === "Dashboard"}
-                />
-              </Link>
-              <Link to="/Food-Dairy" style={{ textDecoration: "none" }}>
-                <MenuItemComponent
-                  title="FoodDairy"
-                  // icon={IconTickets}
-                  onClick={() => this.onItemClicked("FoodDairy")}
-                  active={this.props.selectedItem === "FoodDairy"}
-                />
-              </Link>
-              <Link to="/Exercise" style={{ textDecoration: "none" }}>
-                <MenuItemComponent
-                  title="Exercise"
-                  // icon={IconIdeas}
-                  onClick={() => this.onItemClicked("Exercise")}
-                  active={this.props.selectedItem === "Exercise"}
                 />
               </Link>
               <Link to="/Goals" style={{ textDecoration: "none" }}>
@@ -153,11 +159,28 @@ class SidebarComponent extends React.Component {
                   active={this.props.selectedItem === "Goals"}
                 />
               </Link>
+              <Link to="/Food-Dairy" style={{ textDecoration: "none" }}>
+                <MenuItemComponent
+                  title="Nutrition"
+                  // icon={IconTickets}
+                  onClick={() => this.onItemClicked("Nutrition")}
+                  active={this.props.selectedItem === "Nutrition"}
+                />
+              </Link>
+              <Link to="/Exercise" style={{ textDecoration: "none" }}>
+                <MenuItemComponent
+                  title="Exercise"
+                  // icon={IconIdeas}
+                  onClick={() => this.onItemClicked("Exercise")}
+                  active={this.props.selectedItem === "Exercise"}
+                />
+              </Link>
+
               <div className={css(styles.separator)}></div>
               <Link to="/Video" style={{ textDecoration: "none" }}>
                 <MenuItemComponent
                   title="Recommended Videos"
-                  // icon={IconSettings}
+                  // icon={IconAgents}
                   onClick={() => this.onItemClicked("Videos")}
                   active={this.props.selectedItem === "Videos"}
                 />

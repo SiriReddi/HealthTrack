@@ -3,3 +3,9 @@
   float: right;
   display: flex; /* or inline-flex */
 }
+.slidecontainer {
+  width: 80%;
+}
+.slider {
+  background: "pink";
+}

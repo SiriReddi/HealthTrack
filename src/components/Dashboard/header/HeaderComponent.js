@@ -81,7 +81,7 @@ function HeaderComponent(props) {
         {/* <div className={css(styles.iconStyles)}>{date()}</div> */}
         <div className={css(styles.iconStyles)}>{/* <IconSearch /> */}</div>
         <div className={css(styles.iconStyles)}>{/* <IconBellNew /> */}</div>
-        <div className={css(styles.separator)}></div>
+        {/* <div className={css(styles.separator)}></div> */}
         <Row vertical="center">
           <span className={css(styles.name, styles.cursorPointer)}>
             Sirisha Basireddy

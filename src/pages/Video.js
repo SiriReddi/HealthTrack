@@ -20,7 +20,7 @@ const API_KEY = "AIzaSyCT5YNj0WpEUrt_4K8b3GZ6NoBZTOImXMA";
 const styles = StyleSheet.create({
   dash: {
     backgroundImage:
-      "linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1)"
+      "linear-gradient(to right top, #6d455c, #7a5475, #84668f, #8a78aa, #8b8cc5, #778fc5, #6391c3, #4f92be, #307f9d, #1d6b7b, #17575c, #164340"
     // backgroundImage:
     //   "linear-gradient(to right top, #1f1d1e, #261c24, #2a1c2c, #2b1d37, #262043, #1c2245, #102445, #002645, #002438, #01202a, #0b1b1e, #121515)"
   },
@@ -70,7 +70,17 @@ const styles = StyleSheet.create({
     backgroundImage:
       "linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1)",
     color: "gray"
+  },
+  articles: {
+    marginTop: "5%",
+    marginLeft: "5%",
+    marginBottom: "5%",
+    lineSpacing: "5%"
   }
+  // link: {
+  //   marginTop: "5%",
+  //   marginLeft: "5%"
+  // }
 });
 
 class Video extends Component {
@@ -126,9 +136,23 @@ class Video extends Component {
               />
             </div>
           </Column>
-          {/* <div className={css(styles.contentside)}>
-            <RightSideComponent />
-          </div> */}
+          <div className={css(styles.articles)}>
+            Related Articles
+            <br></br>
+            <a
+              className={css(styles.link)}
+              href="https://www.foodnetwork.com/healthy/packages/healthy-every-week/healthy-mains/foodnetwork-most-saved-healthy-recipes"
+            >
+              Healthy recipes
+            </a>
+            <br></br>
+            <a
+              className={css(styles.link)}
+              href="https://www.active.com/fitness/articles/5-simple-tips-for-fitness-success"
+            >
+              Fitness tips
+            </a>
+          </div>
         </Row>
       </div>
     );

@@ -2,8 +2,9 @@ import React from "react";
 import { Column, Row } from "simple-flexbox";
 import { StyleSheet, css } from "aphrodite/no-important";
 import MiniCardComponent from "./MiniCardComponent";
+import BmiCardComponent from "./bmiCardComponent";
+import MacroCardComponent from "./MacroCardComponent";
 import TodayTrendsComponent from "./TodayTrendsComponent";
-import HeartLine from "../../heartLine";
 
 const styles = StyleSheet.create({
   // cardsContainer: {
@@ -53,9 +54,9 @@ function ContentComponent() {
           // breakpoints={{ 384: "column" }}
         >
           <MiniCardComponent className={css(styles.miniCardContainer)} />
-          <MiniCardComponent className={css(styles.miniCardContainer)} />
+          <BmiCardComponent className={css(styles.miniCardContainer)} />
 
-          <MiniCardComponent className={css(styles.miniCardContainer)} />
+          <MacroCardComponent className={css(styles.miniCardContainer)} />
         </Row>
       </Row>
     </Column>

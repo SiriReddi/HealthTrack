@@ -6,13 +6,25 @@ import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
+import signup from "./signup3.jpg";
 
 const styles = theme => ({
   root: {
     ...theme.mixins.gutters(),
     paddingTop: theme.spacing.unit * 2,
     paddingBottom: theme.spacing.unit * 2,
-    margin: "4%"
+    margin: "10%",
+    width: "30%",
+    marginTop: "28%",
+    borderRadius: "10%",
+    background: "lightcream",
+    border: "0.5em solid lightblue",
+    zindex: "9999"
+  },
+  body: {
+    display: "flex",
+    backgroundImage: `url(${signup})`,
+    backgroundSize: "cover"
   },
   margin: {
     margin: theme.spacing.unit
@@ -23,7 +35,7 @@ class Signup extends React.Component {
   render() {
     const { classes } = this.props;
     return (
-      <div>
+      <div className={classes.body}>
         <Paper className={classes.root} elevation={1}>
           <Typography variant="headline" component="h3" align="center">
             Create Account

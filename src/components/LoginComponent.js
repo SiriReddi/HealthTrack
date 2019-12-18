@@ -12,6 +12,8 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import { CardMedia } from "@material-ui/core";
+import login from "./login.jpg";
 
 const styles = theme => ({
   root: {
@@ -19,8 +21,14 @@ const styles = theme => ({
     paddingTop: theme.spacing.unit * 2,
     paddingBottom: theme.spacing.unit * 2,
 
-    margin: "5%",
-    marginTop: "4%"
+    margin: "10%",
+    marginTop: "20%",
+    width: "35%",
+    borderRadius: "10%",
+    zindex: "9999"
+  },
+  body: {
+    backgrounImage: `url(${login})`
   },
   margin: {
     margin: theme.spacing.unit
@@ -34,7 +42,7 @@ class Login extends React.Component {
   render() {
     const { classes } = this.props;
     return (
-      <div>
+      <div className={classes.body}>
         <Paper className={classes.root} elevation={1} justify="center">
           <Typography variant="headline" component="h3" align="center">
             Log In
@@ -63,7 +71,7 @@ class Login extends React.Component {
           <Grid container spacing={8}>
             <Grid item xs={12} sm={3} className={classes.buttonStyle}>
               <Button
-                size="large"
+                size="small"
                 variant="contained"
                 color="primary"
                 onClick={this.props.submitAction}
@@ -72,8 +80,13 @@ class Login extends React.Component {
               </Button>
             </Grid>
             <Grid item xs={12} sm={3}>
-              <Button size="small" variant="contained" href="/signup">
-                New User
+              <Button
+                size="small"
+                variant="contained"
+                color="primary"
+                href="/signup"
+              >
+                SignUp
               </Button>
             </Grid>
           </Grid>

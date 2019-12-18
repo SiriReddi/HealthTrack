@@ -1,9 +1,5 @@
 html {
-  background: linear-gradient(
-    0deg,
-    rgba(255, 255, 255, 0.2) 50%,
-    rgb(72, 72, 119) 100%
-  );
+  background-color: "linear-gradient(to right top, #1f1d1e, #261c24, #2a1c2c, #2b1d37, #262043, #1c2245, #102445, #002645, #002438, #01202a, #0b1b1e, #121515)";
 }
 
 div .card {
@@ -14,11 +10,7 @@ div .card {
   padding: 10px;
   text-align: inherit;
   border-radius: 15px;
-  background: linear-gradient(
-    90deg,
-    rgba(238, 174, 202, 1) 0%,
-    rgba(148, 187, 233, 1) 100%
-  );
+  background: "linear-gradient(to right top, #1f1d1e, #261c24, #2a1c2c, #2b1d37, #262043, #1c2245, #102445, #002645, #002438, #01202a, #0b1b1e, #121515)";
 }
 .card-img {
   float: right;

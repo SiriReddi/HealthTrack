@@ -9,8 +9,54 @@ import UnitConversion from "../utilities/UnitConversion";
 import DisplayOutput from "./display-output/DisplayOutput";
 import CalorieCalc from "../utilities/CalorieCalc";
 import FormValidation from "../utilities/FormValidation";
-import Nav from "./Nav";
+import { Column, Row } from "simple-flexbox";
+import { StyleSheet, css } from "aphrodite";
+import SidebarComponent from "./Dashboard/sidebar/SidebarComponent";
+import HeaderComponent from "./Dashboard/header/HeaderComponent";
+import ContentComponent from "./Dashboard/content/ContentComponent";
+import RightSideComponent from "./Dashboard/rightsidebar/RightSideBarComponent";
+import RectCardComponent from "./Dashboard/content/RectCardComponent";
 
+const styles = StyleSheet.create({
+  dash: {
+    background: "fixed"
+  },
+  container: {
+    display: "flex",
+    height: "100%",
+    minHeight: "100vh"
+  },
+  minicontent: {
+    width: "100%",
+    borderRadius: "30%",
+    padding: "10px",
+    marginTop: 5
+  },
+  content: {
+    marginTop: 5,
+    border: "0.5px solid lightpink",
+    borderRadius: "20px",
+    color: "lightblue"
+  },
+  heading: {
+    marginLeft: "40%",
+    color: "pink"
+  },
+  contentside: {
+    marginTop: 0,
+    backgroundImage:
+      "linear-gradient(to right top, #1f1d1e, #261c24, #2a1c2c, #2b1d37, #262043, #1c2245, #102445, #002645, #002438, #01202a, #0b1b1e, #121515)",
+    width: "auto"
+  },
+  mainBlock: {
+    backgroundImage:
+      "linear-gradient(to right top, #1f1d1e, #261c24, #2a1c2c, #2b1d37, #262043, #1c2245, #102445, #002645, #002438, #01202a, #0b1b1e, #121515)",
+    padding: 20,
+    paddingRight: 10,
+    width: "60%",
+    maxWidth: "60%"
+  }
+});
 class BmiCalculator extends Component {
   constructor(props) {
     super();
@@ -160,108 +206,129 @@ class BmiCalculator extends Component {
     }
   };
   render() {
+    const { selectedItem } = this.state;
     return (
-      <>
-        <Nav />
-        <div className="container-960">
-          <h1 className="heading">BMI Calculator</h1>
-          <p className="lead">
-            Use our calculator to find out how many calories your body burns
-            every day (Total Daily Energy Expenditure). It takes your individual
-            body metrics and activity level and uses a <br></br>
-            <a href="https://www.ncbi.nlm.nih.gov/pubmed/2305711">
-              scientifically accurate
-            </a>
-            formula to get your personalized result.
-          </p>
-          <div className="row">
-            <div className="col-sm-6">
-              <form
-                className="form-horizontal clearfix bottom-buffer"
-                onSubmit={this.handleSubmit}
-              >
-                <UnitSelection handleUnitChange={this.handleUnitChange} />
-                <SexSelection handleSexChange={this.handleSexChange} />
-                <SingleInput
-                  className="col"
-                  label="Weight"
-                  inputType="number"
-                  name="weight"
-                  hasErrors={this.state.errors.weight}
-                  value={this.state.displayWeight}
-                  width="80px"
-                  handleChange={this.handleWeightChange}
-                  handleErrors={this.handleErrors}
-                >
-                  <UnitLabel units={this.state.units} />
-                  <FieldError
-                    hasErrors={this.state.errors.weight}
-                    errorMsg="Weight must be greater than 0"
-                  />
-                </SingleInput>
-                <SingleInput
-                  className="col"
-                  label="Age"
-                  inputType="number"
-                  name="age"
-                  hasErrors={this.state.errors.age}
-                  value={this.state.age}
-                  width="80px"
-                  handleChange={this.handleAgeChange}
-                  handleErrors={this.handleErrors}
-                >
-                  <FieldError
-                    hasErrors={this.state.errors.age}
-                    errorMsg="Age must be greater than 0"
-                  />
-                </SingleInput>
-                <HeightInput
-                  className="col"
-                  name="height"
-                  cm={this.state.masterHeight}
-                  feet={this.state.feet}
-                  inches={this.state.inches}
-                  hasErrors={this.state.errors.height}
-                  units={this.state.units}
-                  handleErrors={this.handleErrors}
-                  handleImperialHeightErrors={this.handleImperialHeightErrors}
-                  handleFeetChange={this.handleFeetChange}
-                  handleInchesChange={this.handleInchesChange}
-                  handleCmChange={this.handleCmChange}
-                >
-                  <FieldError
-                    hasErrors={this.state.errors.height}
-                    errorMsg="Height must be greater than 0"
-                  />
-                </HeightInput>
-                <ActivitySelect
-                  name="activityLevel"
-                  handleErrors={this.handleErrors}
-                  handleActivityLevelChange={this.handleActivityLevelChange}
-                  hasErrors={this.state.errors.activityLevel}
-                >
-                  <FieldError
-                    hasErrors={this.state.errors.activityLevel}
-                    errorMsg="Please select an activity level"
-                  />
-                </ActivitySelect>
-                <div className="pull-right">
-                  <button
-                    type="submit"
-                    disabled={!this.canBeSubmitted()}
-                    className="btn btn-default"
+      <div className={css(styles.dash)}>
+        <Row className={css(styles.container)}>
+          <SidebarComponent
+            selectedItem={selectedItem}
+            onChange={selectedItem => this.setState({ selectedItem })}
+          />
+          <Column flexGrow={1} className={css(styles.mainBlock)}>
+            <HeaderComponent title={selectedItem} />
+            <div className={css(styles.minicontent)}>
+              <RectCardComponent />
+            </div>
+            <div className={css(styles.content)}>
+              {/* <div className="container-960"> */}
+              <h2 className={css(styles.heading)}>BMI Calculator</h2>
+              <p className="lead">
+                Use our calculator to find out how many calories your body burns
+                every day (Total Daily Energy Expenditure). It takes your
+                individual body metrics and activity level and uses a <br></br>
+                <a href="https://www.ncbi.nlm.nih.gov/pubmed/2305711">
+                  scientifically accurate
+                </a>
+                formula to get your personalized result.
+              </p>
+              <div className="row">
+                <div className="col-sm-6">
+                  <form
+                    className="form-horizontal clearfix bottom-buffer"
+                    onSubmit={this.handleSubmit}
                   >
-                    Submit
-                  </button>
+                    <UnitSelection handleUnitChange={this.handleUnitChange} />
+                    <SexSelection handleSexChange={this.handleSexChange} />
+                    <SingleInput
+                      className="col"
+                      label="Weight"
+                      inputType="number"
+                      name="weight"
+                      hasErrors={this.state.errors.weight}
+                      value={this.state.displayWeight}
+                      width="80px"
+                      handleChange={this.handleWeightChange}
+                      handleErrors={this.handleErrors}
+                    >
+                      <UnitLabel units={this.state.units} />
+                      <FieldError
+                        hasErrors={this.state.errors.weight}
+                        errorMsg="Weight must be greater than 0"
+                      />
+                    </SingleInput>
+                    <SingleInput
+                      className="col"
+                      label="Age"
+                      inputType="number"
+                      name="age"
+                      hasErrors={this.state.errors.age}
+                      value={this.state.age}
+                      width="80px"
+                      handleChange={this.handleAgeChange}
+                      handleErrors={this.handleErrors}
+                    >
+                      <FieldError
+                        hasErrors={this.state.errors.age}
+                        errorMsg="Age must be greater than 0"
+                      />
+                    </SingleInput>
+                    <HeightInput
+                      className="col"
+                      name="height"
+                      cm={this.state.masterHeight}
+                      feet={this.state.feet}
+                      inches={this.state.inches}
+                      hasErrors={this.state.errors.height}
+                      units={this.state.units}
+                      handleErrors={this.handleErrors}
+                      handleImperialHeightErrors={
+                        this.handleImperialHeightErrors
+                      }
+                      handleFeetChange={this.handleFeetChange}
+                      handleInchesChange={this.handleInchesChange}
+                      handleCmChange={this.handleCmChange}
+                    >
+                      <FieldError
+                        hasErrors={this.state.errors.height}
+                        errorMsg="Height must be greater than 0"
+                      />
+                    </HeightInput>
+                    <ActivitySelect
+                      name="activityLevel"
+                      handleErrors={this.handleErrors}
+                      handleActivityLevelChange={this.handleActivityLevelChange}
+                      hasErrors={this.state.errors.activityLevel}
+                    >
+                      <FieldError
+                        hasErrors={this.state.errors.activityLevel}
+                        errorMsg="Please select an activity level"
+                      />
+                    </ActivitySelect>
+                    <div className="pull-right">
+                      <button
+                        type="submit"
+                        disabled={!this.canBeSubmitted()}
+                        className="btn btn-default"
+                      >
+                        Submit
+                      </button>
+                    </div>
+                  </form>
+                  <div className="display">
+                    <DisplayOutput
+                      bmr={this.state.bmr}
+                      tdee={this.state.tdee}
+                    />
+                  </div>
                 </div>
-              </form>
-              <div className="display">
-                <DisplayOutput bmr={this.state.bmr} tdee={this.state.tdee} />
               </div>
             </div>
+          </Column>
+          <div className={css(styles.contentside)}>
+            <RightSideComponent />
           </div>
-        </div>
-      </>
+        </Row>
+      </div>
     );
   }
 }

@@ -3,6 +3,12 @@ import BmiCalculator from "./components/bmiCalculator";
 import Macros from "./components/macros";
 import TargetHeartRate from "./components/targetHeartRate";
 import Home from "./components/home";
+import FoodLog from "./pages/FoodLog";
+import Goals from "./pages/goals";
+import ExerciseGoal from "./pages/ExercisePage/ExercisePage";
+import WaterGoal from "./pages/WaterPage/WaterPage";
+import Video from "./pages/Video";
+
 import "./App.css";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 
@@ -23,7 +29,7 @@ function Main(props) {
                   />
 
                   <p>
-                    <i>Health Track</i>
+                    <i>FitPal</i>
                   </p>
                 </div>
               </div>
@@ -55,7 +61,22 @@ function Main(props) {
               </Link>
             </li>
             <li className="menu">
-              <Link to="/Login" style={{ textDecoration: "none" }}>
+              <Link to="/Goals" style={{ textDecoration: "none" }}>
+                Goals
+              </Link>
+            </li>
+            <li className="menu">
+              <Link to="/Exercise" style={{ textDecoration: "none" }}>
+                Exercise
+              </Link>
+            </li>
+            <li className="menu">
+              <Link to="/Water" style={{ textDecoration: "none" }}>
+                Water
+              </Link>
+            </li>
+            <li className="menu">
+              <Link to="/" style={{ textDecoration: "none" }}>
                 LogOut
               </Link>
             </li>
@@ -69,11 +90,11 @@ function Main(props) {
           alt=""
         />
         <div className="card-body">
-          <h5 className="card-title">Hello Sirisha</h5>
+          <h5 className="card-title">Hello </h5>
           <p className="card-text">Today is the perfect day to be fit!</p>
         </div>
       </div>
-
+      <Video />
       {/* <Route exact path="/Home" component={Home} />
       <Route path="/Bmi-Calculator" component={BmiCalculator} />
 

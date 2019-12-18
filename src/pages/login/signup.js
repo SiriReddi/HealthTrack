@@ -44,7 +44,7 @@ class Signup extends Component {
       axios
         .post("http://localhost:3001/auth/register", userDetails)
         .then(result => {
-          this.props.history.push("/login");
+          this.props.history.push("/");
         });
     } else {
       this.handleClickOpen();

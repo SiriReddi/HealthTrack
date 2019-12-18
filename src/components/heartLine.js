@@ -2,33 +2,23 @@ import React, { Component } from "react";
 import { Line } from "react-chartjs-2";
 
 class HeartLine extends Component {
-  renderChart() {
+  renderChart(props) {
     const chartData = {
-      labels: [
-        "90",
-        "100",
-        "110",
-        "120",
-        "130",
-        "140",
-        "150",
-        "160",
-        "170",
-        "190",
-        "200"
-      ],
+      data: {
+        labels: ["Hr"],
 
-      datasets: [
-        {
-          strokeColor: "rgba(100, 190, 154, 1)",
-          data: this.props.MaxHR,
-          backgroundColor: "rgba(130, 94, 185, 0.7098039215686275)"
-        }
-      ],
+        datasets: [
+          {
+            strokeColor: "rgba(100, 190, 154, 1)",
+            data: [this.props.hrMax],
+            backgroundColor: "rgba(130, 94, 185, 0.7098039215686275)"
+          }
+        ]
+      },
       options: {
         responsive: false,
         maintainAspectRatio: false,
-        title: {
+        legend: {
           display: false
         },
         elements: {
@@ -60,20 +50,12 @@ class HeartLine extends Component {
     console.log("chart ", chartData);
     return (
       <div className="Chart-container">
-        <Line
-          justify="center"
-          data={chartData}
-          //   options={{
-          //     elements: {
-          //       display: false
-          //     }
-          //   }}
-        />
+        <Line justify="center" data={chartData} />
       </div>
     );
   }
 
-  render() {
+  render(props) {
     return this.renderChart();
   }
 }

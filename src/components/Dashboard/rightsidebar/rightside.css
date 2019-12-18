@@ -1,0 +1,5 @@
+.container {
+  width: 50%;
+  float: right;
+  display: flex; /* or inline-flex */
+}

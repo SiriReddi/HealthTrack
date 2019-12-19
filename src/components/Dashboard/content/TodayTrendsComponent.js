@@ -86,8 +86,8 @@ const styles = StyleSheet.create({
     width: "100px"
   },
   pie: {
-    width: "5px",
-    height: "5px"
+    width: "8px",
+    height: "8px"
   },
   stack: {
     backgroundImage:

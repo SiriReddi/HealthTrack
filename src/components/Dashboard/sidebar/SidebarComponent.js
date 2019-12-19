@@ -95,7 +95,7 @@ class SidebarComponent extends React.Component {
     return this.props.onChange(item);
   };
 
-  isMobile = () => window.innerWidth < 0;
+  isMobile = () => window.innerWidth <= 768;
 
   toggleMenu = () =>
     this.setState(prevState => ({ expanded: !prevState.expanded }));
